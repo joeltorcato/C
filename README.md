@@ -1,27 +1,23 @@
-# 📌 Estudo de C  
+# 📌 c study  
+this repository contains all the code i developed throughout my **c** language learning journey. over more than a year, i practiced fundamental concepts, solved exercises, and created small projects to consolidate my knowledge.  
 
-Este repositório contém todos os códigos que desenvolvi ao longo do meu percurso de aprendizagem da linguagem **C**. Durante mais de um ano, pratiquei conceitos fundamentais, resolvi exercícios e criei pequenos projetos para consolidar os meus conhecimentos.  
+## 📂 content  
+here you'll find a variety of code, including:  
+✅ control structures (if, loops, switch)  
+✅ array and string manipulation  
+✅ functions and recursion  
+✅ pointers and dynamic memory allocation  
+✅ structures and file manipulation  
+✅ practical projects  
 
-## 📂 Conteúdo  
+## 🚀 purpose  
+the goal of this repository is to serve as an archive of my study and, at the same time, help those who are also learning **c**.  
 
-Aqui encontras uma variedade de códigos, incluindo:  
-✅ Estruturas de controlo (if, loops, switch)  
-✅ Manipulação de arrays e strings  
-✅ Funções e recursividade  
-✅ Ponteiros e alocação dinâmica de memória  
-✅ Estruturas e manipulação de ficheiros  
-✅ Projetos práticos  
+now, i'm starting my journey in **java**, but this repository will remain available for reference!  
 
-## 🚀 Objetivo  
-
-O objetivo deste repositório é servir como um arquivo do meu estudo e, ao mesmo tempo, ajudar quem também estiver a aprender **C**.  
-
-Agora, estou a iniciar a minha jornada em **Java**, mas este repositório continuará disponível para consulta!  
-
-## 📎 Como Utilizar  
-
-Para compilar e executar os códigos, basta utilizar um compilador **C**, como o GCC:  
-
+## 📎 how to use  
+to compile and run the code, simply use a **c** compiler, like gcc:  
 ```sh
-gcc nome_do_arquivo.c -o nome_do_executavel
-./nome_do_executavel
+gcc filename.c -o executablename
+./executablename
+```
