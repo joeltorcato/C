@@ -3,6 +3,7 @@
 !*.c
 !*.h
 !*.md
+!*.ts
 !Makefile
 !.gitignore
 .idea/
