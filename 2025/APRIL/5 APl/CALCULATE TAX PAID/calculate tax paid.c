@@ -5,7 +5,7 @@ int main () {
     char sex;
 
     printf ("WHAT IS THE SALARY: ");
-    scanf_s ("%f" , &salary);
+    scanf ("%f" , &salary);
 
     printf ("WHAT IS THE SEX: ");
     scanf (" %c" , &sex);
