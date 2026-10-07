@@ -1,27 +1,16 @@
 #include <stdio.h>
 
 int main () {
-  int numerotabuada, multiplicador, resultado;
+  int numerotabuada = 1;
 
-  numerotabuada = 1;
-  multiplicador = 1;
-
-  // outer loop
-  for (resultado = numerotabuada; resultado <= (numerotabuada * 10); resultado = numerotabuada * multiplicador) { //resultado += numerotabuada
-    printf("%d x %d = %d\n", numerotabuada, multiplicador, resultado);
-    multiplicador = multiplicador + 1; // multiplicador++
-
-    continue;
-
-    // inner loop
-        for (numerotabuada = numerotabuada + +1; resultado <= (numerotabuada * 10); resultado = numerotabuada * multiplicador) { //resultado += numerotabuada
-    printf("\n%d x %d = %d\n", numerotabuada, multiplicador, resultado);
-    multiplicador = multiplicador + 1; // multiplicador++
+  for (int i = 1; i <= 9; i++) {
+    for (int multiplicador = 1; multiplicador <= 10; multiplicador++)
+    {
+      printf("%d x %d = %3d \n",numerotabuada, multiplicador, i * multiplicador);
     }
+     numerotabuada = numerotabuada + 1;
+     printf("\n");
   }
-  return 0;
 }
 
-
-
-// fazer o ciclo continuar.
+// organizar melhor o exercício.
