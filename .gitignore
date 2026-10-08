@@ -5,6 +5,5 @@
 !*.md
 !*.ts
 !Makefile
-.gitignore
 .idea/
 
