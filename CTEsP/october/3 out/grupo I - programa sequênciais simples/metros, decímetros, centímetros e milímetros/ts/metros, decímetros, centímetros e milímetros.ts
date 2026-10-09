@@ -1,6 +1,6 @@
-const readline = require('readline');
+let readline = require('readline');
 
-const rl = readline.createInterface({
+let rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
@@ -22,5 +22,7 @@ const rl = readline.createInterface({
 })
 
 rl.question()
+
+export {};
 
 // scope - await
