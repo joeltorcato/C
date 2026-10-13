@@ -12,5 +12,3 @@ int main () {
 
   printf("o valor em fahrenheit é de: %.2f\n", resultado);
 }
-
-// subir para o github
