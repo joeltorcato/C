@@ -15,3 +15,7 @@ int main () {
   }
   return 0;
 }
+
+// lista não array
+// sem else
+// 2 for loop
