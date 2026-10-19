@@ -10,5 +10,3 @@ int main() {
     scanf("%f", &temperatura[contador]);
   } 
 }
-
-
