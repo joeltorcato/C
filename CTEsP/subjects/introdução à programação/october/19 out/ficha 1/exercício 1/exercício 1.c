@@ -13,5 +13,3 @@ int main () {
     printf("o número inserido é menor que 10\n");
   }
 }
-
-// refazer com switch (case)
