@@ -6,6 +6,6 @@ int main () {
 
   for (int celsius = 10; celsius <= 20; celsius++) {
     resultado = (celsius * 1.8) + 32;
-    printf("%d celsius -> %.2f fahrenheit\n", celsius, resultado);
+    printf("%d Celsius -> %.2f Fahrenheit\n", celsius, resultado);
   }
 }

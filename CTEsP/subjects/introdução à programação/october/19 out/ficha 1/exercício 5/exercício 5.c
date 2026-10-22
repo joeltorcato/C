@@ -20,15 +20,13 @@ int main() {
     }
   }
 
-  // Primeira média
   if (quantidadeTemperaturas > 0) {
     media = somaTemperaturas / quantidadeTemperaturas;
-    printf("\nA média das temperaturas entre os valores 18 e 28 são de %.2f\n", media);
+    printf("\nA média das temperaturas entre os valores 18 e 28 são de %.1f\n", media);
   } else {
     printf("\nNão existe temperaturas entre os valores 18 e 28\n");
   }
 
-  // Segunda média
     mediaTotal = (somaTemperaturas + somaRestoTemperaturas) / 7;
-    printf("\nA média de todas as temperaturas é de %.2f\n\n", mediaTotal);
+    printf("\nA média de todas as temperaturas é de %.1f\n\n", mediaTotal);
 }

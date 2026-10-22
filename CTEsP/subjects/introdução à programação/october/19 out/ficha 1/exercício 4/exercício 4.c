@@ -3,11 +3,11 @@
 
 int main() {
   #define PI 3.14159265358979323846
-  float raio = 10, perímetro;
+  float raio = 10, perimetro;
 
-  perímetro = 2 * PI * raio; 
+  perimetro = 2 * PI * raio; 
 
-  printf("o perímetro da circunferência é de %.2f\n", perímetro);
+  printf("O raio é de %.1f, logo o perímetro da circunferência é de %.1f\n", raio, perimetro);
 }
 
 // pedir ao utilizador
