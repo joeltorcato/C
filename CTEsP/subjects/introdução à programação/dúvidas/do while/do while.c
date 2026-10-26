@@ -14,4 +14,3 @@ int main () {
   return 0;
 }
 
-// Usar o do while para o projeto de JavaScript.
