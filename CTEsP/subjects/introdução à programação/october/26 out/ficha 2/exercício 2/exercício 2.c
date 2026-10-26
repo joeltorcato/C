@@ -23,3 +23,5 @@ int main () {
     printf("Insira um valor válido\n");
   }
 }
+
+// Check if there is a best way to do
