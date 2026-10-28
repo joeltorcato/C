@@ -48,7 +48,6 @@ int maior(Lista *l) {
 /* PRATA 1: insere na posição 0, empurrando todos para a direita */
 int inserirInicio(Lista *l, int valor) { // How just change tamanho just in this function
     l->tamanho++;
-
     for (int i = l->tamanho; i > 0; i--) {
         l->itens[i] = l->itens[i - 1];
     }

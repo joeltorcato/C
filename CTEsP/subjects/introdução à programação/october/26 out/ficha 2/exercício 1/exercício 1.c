@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-double salarioLiquido() {
+void salarioLiquido() {
   int numeroEmpregado;
   double horasTrabalhadas, horasExtra, valorHora, valorNormal, valorExtra;
   double salarioLiquido, salarioBruto, IRS, segurancaSocial;
@@ -28,7 +28,7 @@ double salarioLiquido() {
     IRS = salarioBruto * 0.20;
     segurancaSocial = salarioBruto * 0.11;
     salarioLiquido = salarioBruto - IRS - segurancaSocial;
-  } else if (salarioBruto >= 600 && salarioBruto < 1000) { // && salarioBruto < 1000 -> opcional
+  } else if (salarioBruto >= 600 && salarioBruto < 1000) { 
     IRS = salarioBruto * 0.15;
     segurancaSocial = salarioBruto * 0.11;
     salarioLiquido = salarioBruto - IRS - segurancaSocial;
