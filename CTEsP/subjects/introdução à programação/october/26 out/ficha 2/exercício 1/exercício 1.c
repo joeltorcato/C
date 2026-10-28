@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main () {
-  int numeroEmpregado, horasTrabalhadas, horasExtra;
-  double valorHora, valorNormal, valorExtra, salarioLiquido, salarioBruto, IRS, segurancaSocial;
+double salarioLiquido() {
+  int numeroEmpregado;
+  double horasTrabalhadas, horasExtra, valorHora, valorNormal, valorExtra;
+  double salarioLiquido, salarioBruto, IRS, segurancaSocial;
 
   printf("Diga o seu número de empregado: ");
   scanf("%d", &numeroEmpregado);
 
   printf("Diga a quantidade de horas que trabalhou: ");
-  scanf("%d", &horasTrabalhadas);
+  scanf("%lf", &horasTrabalhadas);
 
   printf("Diga o seu valor por hora: ");
   scanf("%lf", &valorHora);
@@ -17,17 +18,17 @@ int main () {
   if (horasTrabalhadas > 35) {
     horasExtra = horasTrabalhadas - 35; 
     valorNormal = 35 * valorHora;
-    valorExtra = (horasExtra * 1.5) * valorHora; // Casa decimal é . não ,
+    valorExtra = (horasExtra * 1.5) * valorHora; 
     salarioBruto = valorNormal + valorExtra;
   } else {
     salarioBruto = valorHora * horasTrabalhadas;
   }
 
   if (salarioBruto >= 1000) {
-    IRS = salarioBruto * 0.20; // 20% convertido para casa decimal 0.20
+    IRS = salarioBruto * 0.20;
     segurancaSocial = salarioBruto * 0.11;
     salarioLiquido = salarioBruto - IRS - segurancaSocial;
-  } else if (salarioBruto >= 600 && salarioBruto < 1000) {
+  } else if (salarioBruto >= 600 && salarioBruto < 1000) { // && salarioBruto < 1000 -> opcional
     IRS = salarioBruto * 0.15;
     segurancaSocial = salarioBruto * 0.11;
     salarioLiquido = salarioBruto - IRS - segurancaSocial;
@@ -37,7 +38,11 @@ int main () {
     salarioLiquido = salarioBruto - IRS - segurancaSocial;
   }
 
-  printf("O salário líquido é de: %.2lf€\n", salarioLiquido);
+  printf("O seu número de empregrado é %d, tendo como salário líquido %.2lf€\n", numeroEmpregado, salarioLiquido);
 }
 
-// Use functions
+int main () {
+  salarioLiquido();
+
+  return 0;
+}
