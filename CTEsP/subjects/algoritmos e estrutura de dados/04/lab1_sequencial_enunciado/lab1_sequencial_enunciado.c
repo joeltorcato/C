@@ -46,9 +46,13 @@ int maior(Lista *l) {
 }
 
 /* PRATA 1: insere na posição 0, empurrando todos para a direita */
-int inserirInicio(Lista *l, int valor) {
-    /* TODO */
-    return 0;
+int inserirInicio(Lista *l, int valor) { // How just change tamanho just in this function
+    l->tamanho++;
+
+    for (int i = l->tamanho; i > 0; i--) {
+        l->itens[i] = l->itens[i - 1];
+    }
+    l->itens[0] = valor;
 }
 
 /* PRATA 2: remove a PRIMEIRA ocorrência do valor. Devolve 1 se removeu. */
@@ -70,7 +74,7 @@ int inserirOrdenado(Lista *l, int valor) {
 
 int main(void) {
     Lista l; inicializar(&l);
-    inserirFim(&l, 5); inserirFim(&l, 20); inserirFim(&l, 5); inserirFim(&l, 2);
+    inserirFim(&l, 5); inserirFim(&l, 8); inserirFim(&l, 5); inserirFim(&l, 2);
     imprimir(&l);                                   /* [5, 8, 5, 2]          */
     printf("contar(5) = %d (esperado 2)\n", contar(&l, 5));
     printf("maior     = %d (esperado 8)\n", maior(&l));
