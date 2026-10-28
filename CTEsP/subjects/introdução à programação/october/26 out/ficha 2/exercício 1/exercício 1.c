@@ -38,7 +38,7 @@ void salarioLiquido() {
     salarioLiquido = salarioBruto - IRS - segurancaSocial;
   }
 
-  printf("O seu número de empregrado é %d, tendo como salário líquido %.2lf€\n", numeroEmpregado, salarioLiquido);
+  printf("O seu número de empregado é %d, tendo como salário líquido %.2lf€\n", numeroEmpregado, salarioLiquido);
 }
 
 int main () {
