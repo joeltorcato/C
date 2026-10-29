@@ -47,18 +47,27 @@ int maior(Lista *l) {
 
 /* PRATA 1: insere na posição 0, empurrando todos para a direita */
 int inserirInicio(Lista *l, int valor) { // How just change tamanho just in this function
-    l->tamanho++;
     for (int i = l->tamanho; i > 0; i--) {
         l->itens[i] = l->itens[i - 1];
     }
+    l->tamanho++;
     l->itens[0] = valor;
 }
 
 /* PRATA 2: remove a PRIMEIRA ocorrência do valor. Devolve 1 se removeu. */
 int removerValor(Lista *l, int valor) {
-    /* TODO */
-    return 0;
-}
+    for (int i = 0; i < l->tamanho; i++) {
+        if (l->itens[i] == valor) {
+            for (int j = i; j < l->tamanho; j++) {
+                l->itens[j] = l->itens[j + 1];
+            }
+            l->tamanho--;
+            return -1;
+            }
+        } 
+        return 0;
+        }    
+
 
 /* OURO 1: inverte a lista no próprio vetor (sem vetor auxiliar) */
 void inverter(Lista *l) {
