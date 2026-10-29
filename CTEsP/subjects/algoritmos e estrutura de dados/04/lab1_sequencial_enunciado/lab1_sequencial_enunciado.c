@@ -70,8 +70,17 @@ int removerValor(Lista *l, int valor) {
 
 
 /* OURO 1: inverte a lista no próprio vetor (sem vetor auxiliar) */
-void inverter(Lista *l) {
-    /* TODO */
+void inverter(Lista *l) { // void means the function return no value
+    int final = l->tamanho - 1;
+
+    for (int start = 0; start < final; start++) {
+        int temporary = l->itens[start];
+
+        l->itens[start] = l->itens[final];
+        l->itens[final] = temporary;
+
+        final = final - 1;
+    }
 }
 
 /* OURO 2: assume a lista ordenada; insere mantendo a ordem crescente */
