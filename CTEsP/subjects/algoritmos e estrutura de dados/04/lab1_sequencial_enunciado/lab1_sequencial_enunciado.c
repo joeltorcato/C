@@ -5,17 +5,24 @@
 #include <stdio.h>
 #define MAX 10
 
-typedef struct { int itens[MAX]; int tamanho; } Lista;
+typedef struct
+{
+    int itens[MAX];
+    int tamanho;
+} Lista;
 
 void inicializar(Lista *l) { l->tamanho = 0; }
 
-int inserirFim(Lista *l, int valor) {
-    if (l->tamanho == MAX) return 0;
+int inserirFim(Lista *l, int valor)
+{
+    if (l->tamanho == MAX)
+        return 0;
     l->itens[l->tamanho++] = valor;
     return 1;
 }
 
-void imprimir(Lista *l) {
+void imprimir(Lista *l)
+{
     printf("[");
     for (int i = 0; i < l->tamanho; i++)
         printf("%d%s", l->itens[i], i < l->tamanho - 1 ? ", " : "");
@@ -23,31 +30,41 @@ void imprimir(Lista *l) {
 }
 
 /* BRONZE 1: quantas vezes o valor aparece na lista? */
-int contar(Lista *l, int valor) {
-  int vezes = 0;
+int contar(Lista *l, int valor)
+{
+    int vezes = 0;
 
-    for (int i = 0; i < l->tamanho; i++) {
-      if (valor == l->itens[i]) {
-        vezes++;
-      }
+    for (int i = 0; i < l->tamanho; i++)
+    {
+        if (valor == l->itens[i])
+        {
+            vezes++;
+        }
     }
     return vezes;
 }
 
 /* BRONZE 2: devolve o maior valor (assume lista não vazia) */
-int maior(Lista *l) {
-    for (int i = 0; i < l->tamanho; i++) {
-      if (l->itens > l->itens[i = i + 1]) {
-        return l->itens[i];
-      } else {
-        return -1;
-      }
-  }
+int maior(Lista *l)
+{
+    for (int i = 0; i < l->tamanho; i++)
+    {
+        if (l->itens > l->itens[i = i + 1])
+        {
+            return l->itens[i];
+        }
+        else
+        {
+            return -1;
+        }
+    }
 }
 
 /* PRATA 1: insere na posição 0, empurrando todos para a direita */
-int inserirInicio(Lista *l, int valor) { // How just change tamanho just in this function
-    for (int i = l->tamanho; i > 0; i--) {
+int inserirInicio(Lista *l, int valor)
+{ // How just change tamanho just in this function
+    for (int i = l->tamanho; i > 0; i--)
+    {
         l->itens[i] = l->itens[i - 1];
     }
     l->tamanho++;
@@ -55,25 +72,30 @@ int inserirInicio(Lista *l, int valor) { // How just change tamanho just in this
 }
 
 /* PRATA 2: remove a PRIMEIRA ocorrência do valor. Devolve 1 se removeu. */
-int removerValor(Lista *l, int valor) {
-    for (int i = 0; i < l->tamanho; i++) {
-        if (l->itens[i] == valor) {
-            for (int j = i; j < l->tamanho; j++) {
+int removerValor(Lista *l, int valor)
+{
+    for (int i = 0; i < l->tamanho; i++)
+    {
+        if (l->itens[i] == valor)
+        {
+            for (int j = i; j < l->tamanho; j++)
+            {
                 l->itens[j] = l->itens[j + 1];
             }
             l->tamanho--;
             return -1;
-            }
-        } 
-        return 0;
-        }    
-
+        }
+    }
+    return 0;
+}
 
 /* OURO 1: inverte a lista no próprio vetor (sem vetor auxiliar) */
-void inverter(Lista *l) { // void means the function return no value
+void inverter(Lista *l)
+{ // void means the function return no value
     int final = l->tamanho - 1;
 
-    for (int start = 0; start < final; start++) {
+    for (int start = 0; start < final; start++)
+    {
         int temporary = l->itens[start];
 
         l->itens[start] = l->itens[final];
@@ -84,25 +106,66 @@ void inverter(Lista *l) { // void means the function return no value
 }
 
 /* OURO 2: assume a lista ordenada; insere mantendo a ordem crescente */
-int inserirOrdenado(Lista *l, int valor) {
-    /* TODO */
+int inserirOrdenado(Lista *o, int valor)
+{
+    int helper;
+
+    if (o->tamanho == 0)
+    {
+        o->tamanho++;
+        o->itens[0] = valor;
+
+        return 1;
+    }
+    for (int i = 0; i < o->tamanho; i++)
+    {
+        if (valor > o->itens[i])
+        {
+            valor = o->itens[i + 1];
+            o->tamanho++;
+
+            return 1;
+        }
+        else
+        {
+            helper = o->itens[0];
+
+            valor = o->itens[i];
+            o->itens[i + 1] = helper;
+
+            o->tamanho++;
+            return 1;
+        }
+    }
+
     return 0;
 }
 
-int main(void) {
-    Lista l; inicializar(&l);
-    inserirFim(&l, 5); inserirFim(&l, 8); inserirFim(&l, 5); inserirFim(&l, 2);
-    imprimir(&l);                                   /* [5, 8, 5, 2]          */
+int main(void)
+{
+    Lista l;
+    inicializar(&l);
+    inserirFim(&l, 5);
+    inserirFim(&l, 8);
+    inserirFim(&l, 5);
+    inserirFim(&l, 2);
+    imprimir(&l); /* [5, 8, 5, 2]          */
     printf("contar(5) = %d (esperado 2)\n", contar(&l, 5));
     printf("maior     = %d (esperado 8)\n", maior(&l));
 
-    inserirInicio(&l, 1);   imprimir(&l);           /* [1, 5, 8, 5, 2]       */
-    removerValor(&l, 5);    imprimir(&l);           /* [1, 8, 5, 2]          */
-    inverter(&l);           imprimir(&l);           /* [2, 5, 8, 1]          */
+    inserirInicio(&l, 1);
+    imprimir(&l); /* [1, 5, 8, 5, 2]       */
+    removerValor(&l, 5);
+    imprimir(&l); /* [1, 8, 5, 2]          */
+    inverter(&l);
+    imprimir(&l); /* [2, 5, 8, 1]          */
 
-    Lista o; inicializar(&o);
-    inserirOrdenado(&o, 30); inserirOrdenado(&o, 10);
-    inserirOrdenado(&o, 20); inserirOrdenado(&o, 40);
-    imprimir(&o);                                   /* [10, 20, 30, 40]      */
+    Lista o;
+    inicializar(&o);
+    inserirOrdenado(&o, 30);
+    inserirOrdenado(&o, 10);
+    inserirOrdenado(&o, 20);
+    inserirOrdenado(&o, 40);
+    imprimir(&o); /* [10, 20, 30, 40]      */
     return 0;
 }
