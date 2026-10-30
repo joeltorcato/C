@@ -5,7 +5,7 @@
 #include <stdio.h>
 #define MAX 10
 
-typedef struct
+typedef struct // Object in JavaScrpit (fixed type and has a fixed memory layout)
 {
     int itens[MAX];
     int tamanho;
@@ -15,7 +15,7 @@ void inicializar(Lista *l) { l->tamanho = 0; }
 
 int inserirFim(Lista *l, int valor)
 {
-    if (l->tamanho == MAX)
+    if (l->tamanho == MAX) // l->tamamnho != Lista->tamanho
         return 0;
     l->itens[l->tamanho++] = valor;
     return 1;
@@ -25,7 +25,7 @@ void imprimir(Lista *l)
 {
     printf("[");
     for (int i = 0; i < l->tamanho; i++)
-        printf("%d%s", l->itens[i], i < l->tamanho - 1 ? ", " : "");
+        printf("%d%s", l->itens[i], i < l->tamanho - 1 ? ", " : ""); // condition ? value if true : value if false
     printf("]\n");
 }
 
@@ -160,7 +160,7 @@ int main(void)
     inverter(&l);
     imprimir(&l); /* [2, 5, 8, 1]          */
 
-    Lista o;
+    Lista o; // Only is missing study that (and how i add a value/next value in inserirOrdenado function.)
     inicializar(&o);
     inserirOrdenado(&o, 30);
     inserirOrdenado(&o, 10);
