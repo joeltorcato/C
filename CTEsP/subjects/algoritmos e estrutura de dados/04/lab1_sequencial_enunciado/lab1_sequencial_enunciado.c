@@ -108,12 +108,36 @@ void inverter(Lista *l)
 /* OURO 2: assume a lista ordenada; insere mantendo a ordem crescente */
 int inserirOrdenado(Lista *o, int valor) // * expetes a pointer to a Lista
 {
-    o->tamanho = 4;
+    int final = o->tamanho;
 
-    o->itens[0] = valor;
-    o->itens[1] = valor;
-    o->itens[2] = valor;
-    o->itens[3] = valor;
+    if (o->tamanho == 0)
+    {
+        o->tamanho = o->tamanho + 1;
+        o->itens[0] = valor;
+    }
+
+    for (int inicial = 0; inicial < final; inicial++)
+    {
+        o->tamanho + 1;
+
+        if (valor > o->itens[inicial])
+        {
+            o->itens[inicial + 1] = valor;
+        }
+        else if (valor < o->itens[inicial])
+        {
+            int temporary = o->itens[inicial];
+            o->itens[inicial] = valor;
+            o->itens[inicial + 1] = temporary;
+        }
+        else if (valor > o->itens[inicial - 1] && valor < o->itens[inicial])
+        {
+            int temporary = o->itens[inicial];
+            o->itens[inicial] = valor;
+            o->itens[inicial + 1] = temporary;
+        }
+    }
+    return 0;
 }
 
 int main(void)
