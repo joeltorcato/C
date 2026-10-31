@@ -106,39 +106,14 @@ void inverter(Lista *l)
 }
 
 /* OURO 2: assume a lista ordenada; insere mantendo a ordem crescente */
-int inserirOrdenado(Lista *o, int valor)
+int inserirOrdenado(Lista *o, int valor) // * expetes a pointer to a Lista
 {
-    int helper;
+    o->tamanho = 4;
 
-    if (o->tamanho == 0)
-    {
-        o->tamanho++;
-        o->itens[0] = valor;
-
-        return 1;
-    }
-    for (int i = 0; i < o->tamanho; i++)
-    {
-        if (valor > o->itens[i])
-        {
-            valor = o->itens[i + 1];
-            o->tamanho++;
-
-            return 1;
-        }
-        else
-        {
-            helper = o->itens[0];
-
-            valor = o->itens[i];
-            o->itens[i + 1] = helper;
-
-            o->tamanho++;
-            return 1;
-        }
-    }
-
-    return 0;
+    o->itens[0] = valor;
+    o->itens[1] = valor;
+    o->itens[2] = valor;
+    o->itens[3] = valor;
 }
 
 int main(void)
@@ -160,7 +135,7 @@ int main(void)
     inverter(&l);
     imprimir(&l); /* [2, 5, 8, 1]          */
 
-    Lista o; // Only is missing study that (and how i add a value/next value in inserirOrdenado function.)
+    Lista o; // Creates a new list variable called o (Two lists (l -> used for the first tests and o -> used for the ordered-insertion testes))
     inicializar(&o);
     inserirOrdenado(&o, 30);
     inserirOrdenado(&o, 10);
