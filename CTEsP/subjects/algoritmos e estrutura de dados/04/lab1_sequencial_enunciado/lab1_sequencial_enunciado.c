@@ -47,15 +47,15 @@ int contar(Lista *l, int valor)
 /* BRONZE 2: devolve o maior valor (assume lista não vazia) */
 int maior(Lista *l)
 {
-    for (int i = 0; i < l->tamanho; i++)
+    for (int inicial = 0; inicial < l->tamanho - 1; inicial++)
     {
-        if (l->itens > l->itens[i = i + 1])
+        if (l->itens[inicial] > l->itens[inicial = inicial + 1])
         {
-            return l->itens[i];
+            return l->itens[inicial];
         }
         else
         {
-            return -1;
+            return 0;
         }
     }
 }
@@ -108,7 +108,6 @@ void inverter(Lista *l)
 /* OURO 2: assume a lista ordenada; insere mantendo a ordem crescente */
 int inserirOrdenado(Lista *o, int valor) // * expetes a pointer to a Lista
 {
-    int final = o->tamanho;
 
     if (o->tamanho == 0)
     {
@@ -116,9 +115,9 @@ int inserirOrdenado(Lista *o, int valor) // * expetes a pointer to a Lista
         o->itens[0] = valor;
     }
 
-    for (int inicial = 0; inicial < final; inicial++)
+    for (int inicial = 0; inicial < o->tamanho - 1; inicial++)
     {
-        o->tamanho + 1;
+        o->tamanho = o->tamanho + 1;
 
         if (valor > o->itens[inicial])
         {
@@ -127,30 +126,36 @@ int inserirOrdenado(Lista *o, int valor) // * expetes a pointer to a Lista
         else if (valor < o->itens[inicial])
         {
             int temporary = o->itens[inicial];
-            o->itens[inicial] = valor;
             o->itens[inicial + 1] = temporary;
+            o->itens[inicial] = valor;
         }
         else if (valor > o->itens[inicial - 1] && valor < o->itens[inicial])
         {
             int temporary = o->itens[inicial];
-            o->itens[inicial] = valor;
             o->itens[inicial + 1] = temporary;
+            o->itens[inicial] = valor;
         }
+        else
+        {
+            return 0;
+        }
+        return 1;
     }
-    return 0;
 }
+
+// inicial + 1 (alteração imediata), inicial++ (pós-incremento)
 
 int main(void)
 {
     Lista l;
     inicializar(&l);
     inserirFim(&l, 5);
-    inserirFim(&l, 8);
+    inserirFim(&l, 20);
     inserirFim(&l, 5);
     inserirFim(&l, 2);
     imprimir(&l); /* [5, 8, 5, 2]          */
     printf("contar(5) = %d (esperado 2)\n", contar(&l, 5));
-    printf("maior     = %d (esperado 8)\n", maior(&l));
+    printf("maior     = %d (esperado 20)\n", maior(&l));
 
     inserirInicio(&l, 1);
     imprimir(&l); /* [1, 5, 8, 5, 2]       */
