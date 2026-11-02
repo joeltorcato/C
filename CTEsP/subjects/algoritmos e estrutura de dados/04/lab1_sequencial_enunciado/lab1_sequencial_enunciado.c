@@ -47,17 +47,16 @@ int contar(Lista *l, int valor)
 /* BRONZE 2: devolve o maior valor (assume lista não vazia) */
 int maior(Lista *l)
 {
-    for (int inicial = 0; inicial < l->tamanho - 1; inicial++)
+    int maior = l->itens[0];
+
+    for (int inicial = 1; inicial < l->tamanho; inicial++)
     {
-        if (l->itens[inicial] > l->itens[inicial = inicial + 1])
+        if (l->itens[inicial] > maior)
         {
-            return l->itens[inicial];
-        }
-        else
-        {
-            return 0;
+            maior = l->itens[inicial];
         }
     }
+    return maior;
 }
 
 /* PRATA 1: insere na posição 0, empurrando todos para a direita */
@@ -106,53 +105,30 @@ void inverter(Lista *l)
 }
 
 /* OURO 2: assume a lista ordenada; insere mantendo a ordem crescente */
-int inserirOrdenado(Lista *o, int valor) // * expetes a pointer to a Lista
+int inserirOrdenado(Lista *l, int valor) // * expetes a pointer to a Lista
 {
-
-    if (o->tamanho == 0)
+    for (int inicial = 0; inicial < l->tamanho; inicial++)
     {
-        o->tamanho = o->tamanho + 1;
-        o->itens[0] = valor;
+        if (valor < l->itens[inicial])
+        {
+            ;
+        }
     }
-
-    for (int inicial = 0; inicial < o->tamanho - 1; inicial++)
+    for (int final = l->tamanho; final > 0; final--)
     {
-        o->tamanho = o->tamanho + 1;
-
-        if (valor > o->itens[inicial])
-        {
-            o->itens[inicial + 1] = valor;
-        }
-        else if (valor < o->itens[inicial])
-        {
-            int temporary = o->itens[inicial];
-            o->itens[inicial + 1] = temporary;
-            o->itens[inicial] = valor;
-        }
-        else if (valor > o->itens[inicial - 1] && valor < o->itens[inicial])
-        {
-            int temporary = o->itens[inicial];
-            o->itens[inicial + 1] = temporary;
-            o->itens[inicial] = valor;
-        }
-        else
-        {
-            return 0;
-        }
-        return 1;
+        l->itens[final] = l->itens[final - 1];
     }
-}
-
-// inicial + 1 (alteração imediata), inicial++ (pós-incremento)
+    return 1;
+} // inicial + 1 (alteração imediata), inicial++ (pós-incremento)
 
 int main(void)
 {
     Lista l;
     inicializar(&l);
     inserirFim(&l, 5);
-    inserirFim(&l, 20);
     inserirFim(&l, 5);
     inserirFim(&l, 2);
+    inserirFim(&l, 20);
     imprimir(&l); /* [5, 8, 5, 2]          */
     printf("contar(5) = %d (esperado 2)\n", contar(&l, 5));
     printf("maior     = %d (esperado 20)\n", maior(&l));
@@ -167,9 +143,9 @@ int main(void)
     Lista o; // Creates a new list variable called o (Two lists (l -> used for the first tests and o -> used for the ordered-insertion testes))
     inicializar(&o);
     inserirOrdenado(&o, 30);
+    inserirOrdenado(&o, 40);
     inserirOrdenado(&o, 10);
     inserirOrdenado(&o, 20);
-    inserirOrdenado(&o, 40);
     imprimir(&o); /* [10, 20, 30, 40]      */
     return 0;
 }
