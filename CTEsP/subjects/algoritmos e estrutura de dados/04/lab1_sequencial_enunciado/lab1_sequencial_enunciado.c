@@ -104,21 +104,28 @@ void inverter(Lista *l)
     }
 }
 
-/* OURO 2: assume a lista ordenada; insere mantendo a ordem crescente */
+/* OURO 2: assume a lista ordenada; insere mantendo a ordem crescente (Study) */
 int inserirOrdenado(Lista *l, int valor) // * expetes a pointer to a Lista
 {
+    int contador = l->tamanho;
+
     for (int inicial = 0; inicial < l->tamanho; inicial++)
     {
         if (valor < l->itens[inicial])
         {
-            ;
+            contador = inicial;
+            break;
         }
-        q
     }
+
     for (int final = l->tamanho; final > 0; final--)
     {
         l->itens[final] = l->itens[final - 1];
     }
+
+    l->itens[contador] = valor;
+    l->tamanho++;
+
     return 1;
 } // inicial + 1 (alteração imediata), inicial++ (pós-incremento)
 
@@ -143,9 +150,9 @@ int main(void)
 
     Lista o; // Creates a new list variable called o (Two lists (l -> used for the first tests and o -> used for the ordered-insertion testes))
     inicializar(&o);
-    inserirOrdenado(&o, 30);
     inserirOrdenado(&o, 40);
     inserirOrdenado(&o, 10);
+    inserirOrdenado(&o, 30);
     inserirOrdenado(&o, 20);
     imprimir(&o); /* [10, 20, 30, 40]      */
     return 0;
