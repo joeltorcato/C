@@ -113,6 +113,7 @@ int inserirOrdenado(Lista *l, int valor) // * expetes a pointer to a Lista
         {
             ;
         }
+        q
     }
     for (int final = l->tamanho; final > 0; final--)
     {
