@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int maiorVinte(float numeros[], int quantidade)
 {

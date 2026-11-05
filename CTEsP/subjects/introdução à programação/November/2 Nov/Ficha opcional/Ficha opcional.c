@@ -18,10 +18,8 @@ int main()
       {
         palavras[inicial] = palavrasUnicas[i];
       }
-      i++;
-
-      printf("%s", palavras);
-      printf("%s", palavrasUnicas);
     }
+    printf("%s", palavras);
+    printf("%s", palavrasUnicas);
   }
 }

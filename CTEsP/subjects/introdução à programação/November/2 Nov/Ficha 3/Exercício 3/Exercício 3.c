@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int valoresNegativos(int valores[3][4], int linhas, int colunas)
 /* With a one-dimensional array I don't need to specify the line, but with a two-dimensional
