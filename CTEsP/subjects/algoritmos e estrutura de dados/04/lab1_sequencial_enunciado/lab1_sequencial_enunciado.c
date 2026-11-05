@@ -62,12 +62,19 @@ int maior(Lista *l)
 /* PRATA 1: insere na posição 0, empurrando todos para a direita */
 int inserirInicio(Lista *l, int valor)
 { // How just change tamanho just in this function
+
+    if (l->tamanho == MAX)
+    {
+        return 0;
+    }
     for (int i = l->tamanho; i > 0; i--)
     {
         l->itens[i] = l->itens[i - 1];
     }
-    l->tamanho++;
     l->itens[0] = valor;
+    l->tamanho++;
+
+    return 1;
 }
 
 /* PRATA 2: remove a PRIMEIRA ocorrência do valor. Devolve 1 se removeu. */
@@ -77,12 +84,12 @@ int removerValor(Lista *l, int valor)
     {
         if (l->itens[i] == valor)
         {
-            for (int j = i; j < l->tamanho; j++)
+            for (int j = i; j < l->tamanho - 1; j++)
             {
                 l->itens[j] = l->itens[j + 1];
             }
             l->tamanho--;
-            return -1;
+            return 1;
         }
     }
     return 0;
@@ -107,6 +114,11 @@ void inverter(Lista *l)
 /* OURO 2: assume a lista ordenada; insere mantendo a ordem crescente (Study) */
 int inserirOrdenado(Lista *l, int valor) // * expetes a pointer to a Lista
 {
+    if (l->tamanho == MAX)
+    {
+        return 0;
+    }
+
     int contador = l->tamanho;
 
     for (int inicial = 0; inicial < l->tamanho; inicial++)
@@ -118,7 +130,7 @@ int inserirOrdenado(Lista *l, int valor) // * expetes a pointer to a Lista
         }
     }
 
-    for (int final = l->tamanho; final > 0; final--)
+    for (int final = l->tamanho; final > contador; final--)
     {
         l->itens[final] = l->itens[final - 1];
     }
